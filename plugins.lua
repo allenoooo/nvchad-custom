@@ -25,6 +25,13 @@ local plugins = {
     end,
   },
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = "go",
+    opts = function ()
+      return require "custom.configs.null-ls"
+    end,
+  },
+  {
     "leoluz/nvim-dap-go",
     ft = "go",
     dependencies = "mfussenegger/nvim-dap",
@@ -34,12 +41,16 @@ local plugins = {
     end
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "olexsmir/gopher.nvim",
     ft = "go",
-    opts = function ()
-      return require "custom.configs.null-ls"
+    config = function (_, opts)
+      require("gopher").setup(opts)
+      require("core.utils").load_mappings("gopher")
     end,
-  },
+    build = function ()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  }
 }
 
 return plugins
