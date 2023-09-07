@@ -18,8 +18,8 @@ to skip the requirements for that language.
 * *Treesitter Go* run `:TSInstall go` from the nvim command-line
 
 ## Installation
-    * Clone this repo to your *custom* NvChad directory:
-    ```bash
-    rm -rf ~/.config/nvim/lua/custom
-    git clone https://github.com/allenoooo/nvchad-custom.git ~/.config/nvim/lua/custom`
-    ```
+* Clone this repo to your *custom* NvChad directory:
+```bash
+rm -rf ~/.config/nvim/lua/custom
+git clone https://github.com/allenoooo/nvchad-custom.git ~/.config/nvim/lua/custom`
+```
