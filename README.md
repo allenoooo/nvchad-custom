@@ -4,7 +4,9 @@
 neovim plugins are installed/maintained by mason/treesitter/lazy.nvim/etc from within nvim.
 All dependencies outside of _Core_ are lazy-loaded, meaning that if you don't plan to develop
 in that language, and so don't open filetypes of that particular language, you should be fine
-to skip the requirements for that language.
+to skip the requirements for that language. Here I only listed the dependencies that you'll
+need to manually install on your system, and haven't exhaustively listed all dependencies
+managed by NvChad/Mason.
 
 ### Core
 * [neovim](https://neovim.io/)
@@ -18,6 +20,8 @@ to skip the requirements for that language.
 * _Treesitter Go_ run `:TSInstall go` from the nvim command-line
 ### Rust development
 * _lldb_ for arch (btw): `pacman -S lldb`
+### Python development
+* No dependencies. All deps are managed by mason/lazy, so there's nothing for you to do.
 
 ## Installation
 * Clone this repo to your *custom* NvChad directory:
