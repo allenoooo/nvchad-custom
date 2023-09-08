@@ -22,6 +22,10 @@ managed by NvChad/Mason.
 * _lldb_ for arch (btw): `pacman -S lldb`
 ### Python development
 * No dependencies. All deps are managed by mason/lazy, so there's nothing for you to do.
+### ChatGPT.nvim
+We're using ChatGPT for code completion, analysis, explaining, and analysis/summarization. This
+requires an OpenAI API key.
+* `OPENAI_API_KEY` environment variable, with the plain text OpenAI key as the value
 
 ## Installation
 * Clone this repo to your *custom* NvChad directory:
