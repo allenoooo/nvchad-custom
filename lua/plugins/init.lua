@@ -14,6 +14,17 @@ return {
     end,
   },
   {
+  "kdheepak/lazygit.nvim",
+  lazy = false,
+  config = function()
+    require "configs.lazygit"
+  end,
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
   	"williamboman/mason.nvim",
   	opts = {
   		ensure_installed = {
@@ -30,13 +41,7 @@ return {
   },
   {
     "supermaven-inc/supermaven-nvim",
-    ft = {
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "lua",
-    },
+    lazy = false,
     config = function()
       require "configs.supermaven"
     end,
