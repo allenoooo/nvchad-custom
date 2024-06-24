@@ -21,6 +21,13 @@ return {
   end,
   },
   {
+  "lewis6991/gitsigns.nvim",
+  lazy = false,
+  config = function()
+    require "configs.gitsigns"
+  end,
+  },
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
