@@ -9,6 +9,10 @@ map("n", "<C-j>", "<cmd> TmuxNavigateDown<cr>",  { desc = "TmuxNavigateDown" })
 map("n", "<C-k>", "<cmd> TmuxNavigateUp<cr>",    { desc = "TmuxNavigateUp" })
 map("n", "<C-l>", "<cmd> TmuxNavigateRight<cr>", { desc = "TmuxNavigateRight" })
 
+map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+
+map("n", "<leader>s", "<cmd>split<cr>", { desc = "split" })
+map("n", "<leader>ss", "<cmd>vsplit<cr>", { desc = "vsplit" })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
