@@ -10,8 +10,15 @@ M.ui = {
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
 	-- },
+    hl_override = {
+		["@comment"] = {
+      fg = "#9A7D0A",
+    },
+    Comment = {
+      fg = "#9A7D0A",
+    }
+  },
 }
 
 return M
