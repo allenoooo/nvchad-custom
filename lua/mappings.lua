@@ -11,8 +11,8 @@ map("n", "<C-l>", "<cmd> TmuxNavigateRight<cr>", { desc = "TmuxNavigateRight" })
 
 map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 
-map("n", "<leader>bl", "<cmd>Gitsigns blame_line<cr>", { desc = "blame single line" })
-map("n", "<leader>bb", "<cmd>Gitsigns blame<cr>", { desc = "blame all" })
+map("n", "<leader>gl", "<cmd>Gitsigns blame_line<cr>", { desc = "blame single line" })
+map("n", "<leader>gb", "<cmd>Gitsigns blame<cr>", { desc = "blame all" })
 
 map("n", "<leader>s", "<cmd>split<cr>", { desc = "split" })
 map("n", "<leader>ss", "<cmd>vsplit<cr>", { desc = "vsplit" })

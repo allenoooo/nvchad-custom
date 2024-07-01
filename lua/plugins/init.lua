@@ -56,6 +56,14 @@ return {
   {
   	"nvimtools/none-ls.nvim",
     event = "VeryLazy",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "lua",
+      "json",
+    },
     opts = function()
       return require "configs.null-ls"
     end
@@ -84,6 +92,7 @@ return {
         "javascript",
         "typescript",
         "tsx",
+        "terraform",
       },
     },
   },

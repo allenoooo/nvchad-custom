@@ -10,6 +10,7 @@ local servers = {
   "tsserver",
   "tailwindcss",
   "eslint",
+  "terraformls",
 }
 
 -- lsps with default config
