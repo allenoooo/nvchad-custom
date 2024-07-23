@@ -36,6 +36,7 @@ return {
   	opts = {
   		ensure_installed = {
   			"lua-language-server",
+        "svelte-language-server",
         "stylua",
   			"html-lsp",
         "css-lsp",
@@ -63,6 +64,7 @@ return {
       "typescriptreact",
       "lua",
       "json",
+      "svelte",
     },
     opts = function()
       return require "configs.null-ls"
@@ -93,6 +95,7 @@ return {
         "typescript",
         "tsx",
         "terraform",
+        "svelte",
       },
     },
   },
