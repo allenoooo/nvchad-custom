@@ -11,6 +11,8 @@ local servers = {
   "tailwindcss",
   "eslint",
   "terraformls",
+  "gopls",
+  "svelte",
 }
 
 -- lsps with default config

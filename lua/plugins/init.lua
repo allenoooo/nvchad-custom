@@ -39,6 +39,7 @@ return {
         "svelte-language-server",
         "stylua",
   			"html-lsp",
+        "gopls",
         "css-lsp",
         "prettierd",
         "typescript-language-server",
@@ -87,6 +88,7 @@ return {
     opts = {
       ensure_installed = {
         "vim",
+        "proto",
         "lua",
         "vimdoc",
         "html",
