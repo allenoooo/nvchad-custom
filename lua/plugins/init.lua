@@ -21,6 +21,29 @@ return {
   end,
   },
   {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+    end
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
+  {
   "lewis6991/gitsigns.nvim",
   lazy = false,
   config = function()
@@ -45,6 +68,7 @@ return {
         "typescript-language-server",
         "tailwindcss-language-server",
         "eslint-lsp",
+        "delve",
   		},
   	},
   },
