@@ -1,11 +1,11 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    css = { "prettier" },
-    html = { "prettier" },
-    go = { "gofumpt" },
-    typescript = { "prettier" },
-    javascript = { "prettier" },
+    css = { "prettierd" },
+    html = { "prettierd" },
+    go = { "gofumpt", "goimports_reviser", "golines" },
+    typescript = { "prettierd" },
+    javascript = { "prettierd" },
   },
 
   format_on_save = {

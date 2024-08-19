@@ -1,11 +1,11 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    event = 'BufWritePre',
-    config = function()
-      require "configs.conform"
-    end,
-  },
+  -- {
+  --   "stevearc/conform.nvim",
+  --   event = "BufWritePre",
+  --   config = function()
+  --     require "configs.conform"
+  --   end,
+  -- },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -14,11 +14,11 @@ return {
     end,
   },
   {
-  "kdheepak/lazygit.nvim",
-  lazy = false,
-  config = function()
-    require "configs.lazygit"
-  end,
+    "kdheepak/lazygit.nvim",
+    lazy = false,
+    config = function()
+      require "configs.lazygit"
+    end,
   },
   {
     "mfussenegger/nvim-dap",
@@ -31,7 +31,7 @@ return {
     },
     config = function(_, opts)
       require("dap-go").setup(opts)
-    end
+    end,
   },
   {
     "olexsmir/gopher.nvim",
@@ -44,24 +44,24 @@ return {
     end,
   },
   {
-  "lewis6991/gitsigns.nvim",
-  lazy = false,
-  config = function()
-    require "configs.gitsigns"
-  end,
+    "lewis6991/gitsigns.nvim",
+    lazy = false,
+    config = function()
+      require "configs.gitsigns"
+    end,
   },
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
   {
-  	"williamboman/mason.nvim",
-  	opts = {
-  		ensure_installed = {
-  			"lua-language-server",
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
         "svelte-language-server",
         "stylua",
-  			"html-lsp",
+        "html-lsp",
         "gopls",
         "css-lsp",
         "prettierd",
@@ -69,8 +69,8 @@ return {
         "tailwindcss-language-server",
         "eslint-lsp",
         "delve",
-  		},
-  	},
+      },
+    },
   },
   {
     "supermaven-inc/supermaven-nvim",
@@ -80,23 +80,26 @@ return {
     end,
   },
   {
-  	"nvimtools/none-ls.nvim",
+    "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     ft = {
       "javascript",
-      "javascriptreact",
       "typescript",
-      "typescriptreact",
       "lua",
+      "css",
+      "html",
       "json",
       "svelte",
+      "yaml",
+      "go",
+      "terraform",
     },
     opts = function()
       return require "configs.null-ls"
-    end
+    end,
   },
   {
-  	"windwp/nvim-ts-autotag",
+    "windwp/nvim-ts-autotag",
     ft = {
       "javascript",
       "javascriptreact",
