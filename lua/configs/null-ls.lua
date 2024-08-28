@@ -7,7 +7,8 @@ local opts = {
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.formatting.goimports_reviser,
     null_ls.builtins.formatting.golines,
-    null_ls.builtins.formatting.terraform_fmt,
+    null_ls.builtins.formatting.terraform_fm,
+    null_ls.builtins.formatting.gleam,
   },
 
   -- on github workflows and helm and stuff with weird yaml syntax, formatting on save messes up the yaml/templating
