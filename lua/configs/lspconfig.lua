@@ -11,6 +11,7 @@ local servers = {
   "eslint",
   "terraformls",
   "svelte",
+  "gleam",
 }
 
 -- lsps with default config

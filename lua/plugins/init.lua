@@ -72,13 +72,13 @@ return {
       },
     },
   },
-  {
-    "supermaven-inc/supermaven-nvim",
-    lazy = false,
-    config = function()
-      require "configs.supermaven"
-    end,
-  },
+  -- {
+  --   "supermaven-inc/supermaven-nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require "configs.supermaven"
+  --   end,
+  -- },
   {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
@@ -93,6 +93,7 @@ return {
       "yaml",
       "go",
       "terraform",
+      "gleam",
     },
     opts = function()
       return require "configs.null-ls"
@@ -125,6 +126,7 @@ return {
         "tsx",
         "terraform",
         "svelte",
+        "gleam",
       },
     },
   },
