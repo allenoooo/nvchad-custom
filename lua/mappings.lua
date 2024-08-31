@@ -35,3 +35,4 @@ map("n", "<leader>dgl", "<cmd>lua require('dap-go').debug_last()<cr>", { desc = 
 -- gopher
 map("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>", { desc = "gopher add json tag" })
 map("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { desc = "gopher add yaml tag" })
+map("n", "<leader>gie", "<cmd> GoIfErr <CR>", { desc = "gopher iferr" })
