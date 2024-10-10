@@ -7,7 +7,6 @@ local servers = {
   "html",
   "cssls",
   "tsserver",
-  "tailwindcss",
   "eslint",
   "terraformls",
   "svelte",
@@ -41,10 +40,26 @@ lspconfig.gopls.setup {
   },
 }
 
+lspconfig.tailwindcss.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "heex", "javascriptreact", "typescriptreact" },
+  cmd = { "elixir-ls" },
+}
+
 lspconfig.bufls.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   cmd = { "bufls", "serve" },
   filetypes = { "proto" },
+}
+
+lspconfig.elixirls.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "elixir", "eelixir", "heex" },
+  cmd = { "elixir-ls" },
 }

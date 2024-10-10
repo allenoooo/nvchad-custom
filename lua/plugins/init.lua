@@ -69,6 +69,7 @@ return {
         "tailwindcss-language-server",
         "eslint-lsp",
         "delve",
+        "nextls",
       },
     },
   },
@@ -129,5 +130,9 @@ return {
         "gleam",
       },
     },
+    dependencies = {
+      { "nushell/tree-sitter-nu" },
+    },
+    build = ":TSUpdate",
   },
 }
