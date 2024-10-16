@@ -73,13 +73,13 @@ return {
       },
     },
   },
-  -- {
-  --   "supermaven-inc/supermaven-nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require "configs.supermaven"
-  --   end,
-  -- },
+  {
+    "supermaven-inc/supermaven-nvim",
+    lazy = false,
+    config = function()
+      require "configs.supermaven"
+    end,
+  },
   {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",

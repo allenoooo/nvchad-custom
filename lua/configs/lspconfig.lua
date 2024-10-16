@@ -6,7 +6,7 @@ local lspconfig = require "lspconfig"
 local servers = {
   "html",
   "cssls",
-  "tsserver",
+  "ts_ls",
   "eslint",
   "terraformls",
   "svelte",
@@ -45,7 +45,6 @@ lspconfig.tailwindcss.setup {
   on_init = on_init,
   capabilities = capabilities,
   filetypes = { "heex", "javascriptreact", "typescriptreact" },
-  cmd = { "elixir-ls" },
 }
 
 lspconfig.bufls.setup {

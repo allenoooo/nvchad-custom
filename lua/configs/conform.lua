@@ -6,6 +6,7 @@ local options = {
     go = { "gofumpt", "goimports_reviser", "golines" },
     typescript = { "prettierd" },
     javascript = { "prettierd" },
+    elixir = { "elixir-ls" },
   },
 
   format_on_save = {

@@ -31,6 +31,8 @@ require("lazy").setup({
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
+require("nvconfig").base46.theme = 'catppuccin'
+require("base46").load_all_highlights()
 
 require "nvchad.autocmds"
 
