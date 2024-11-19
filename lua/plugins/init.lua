@@ -24,6 +24,15 @@ return {
     "mfussenegger/nvim-dap",
   },
   {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      'b0o/nvim-tree-preview.lua',
+    },
+    config = function()
+      require "configs.nvimtree"
+    end,
+  },
+  {
     "leoluz/nvim-dap-go",
     ft = "go",
     dependencies = {
@@ -70,6 +79,8 @@ return {
         "eslint-lsp",
         "delve",
         "nextls",
+        "elixirls",
+        "emmet-language-server",
       },
     },
   },
