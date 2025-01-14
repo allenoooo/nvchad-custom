@@ -81,6 +81,7 @@ return {
         "nextls",
         "elixirls",
         "emmet-language-server",
+        "zls",
       },
     },
   },
@@ -139,6 +140,7 @@ return {
         "terraform",
         "svelte",
         "gleam",
+        "zig",
       },
     },
     dependencies = {

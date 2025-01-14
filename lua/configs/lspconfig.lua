@@ -40,6 +40,12 @@ lspconfig.gopls.setup {
   },
 }
 
+lspconfig.zls.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+}
+
 lspconfig.tailwindcss.setup {
   on_attach = on_attach,
   on_init = on_init,
@@ -55,11 +61,11 @@ lspconfig.tailwindcss.setup {
   },
 }
 
-lspconfig.bufls.setup {
+lspconfig.buf_ls.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-  cmd = { "bufls", "serve" },
+  cmd = { "buf_ls", "serve" },
   filetypes = { "proto" },
 }
 
