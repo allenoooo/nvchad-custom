@@ -22,6 +22,16 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.gdscript.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+
+  filetypes = { "gd", "gdscript", "gdscript3" },
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
 lspconfig.gopls.setup {
   on_attach = on_attach,
   on_init = on_init,

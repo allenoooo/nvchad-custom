@@ -14,6 +14,10 @@ return {
     end,
   },
   {
+    "habamax/vim-godot",
+    ft = { "gd", "gdscript" },
+  },
+  {
     "kdheepak/lazygit.nvim",
     lazy = false,
     config = function()
@@ -82,6 +86,7 @@ return {
         "elixirls",
         "emmet-language-server",
         "zls",
+        "gdscript",
       },
     },
   },
@@ -141,7 +146,13 @@ return {
         "svelte",
         "gleam",
         "zig",
+        "gdscript",
+        "godot_resource",
+        "gdshader",
       },
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
     },
     dependencies = {
       { "nushell/tree-sitter-nu" },
