@@ -25,12 +25,56 @@ return {
     end,
   },
   {
+    "mrcjkb/rustaceanvim",
+    version = "^5", -- Recommended
+    lazy = false, -- This plugin is already lazy
+    ft = { "rust" },
+    config = function()
+      vim.g.rustaceanvim = {
+        -- Plugin configuration
+        server = {
+          on_attach = function(client, bufnr)
+            -- Call the shared on_attach function first
+            require("nvchad.configs.lspconfig").on_attach(client, bufnr)
+            -- Enable format on save
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              pattern = "*.rs",
+              callback = function()
+                vim.lsp.buf.format { timeout_ms = 2000 }
+              end,
+            })
+          end,
+          settings = {
+            -- rust-analyzer settings
+            ["rust-analyzer"] = {
+              checkOnSave = {
+                command = "clippy",
+              },
+              -- Enable rustfmt
+              rustfmt = {
+                rangeFormatting = {
+                  enable = true,
+                },
+              },
+            },
+          },
+        },
+        -- rustfmt configuration
+        rustfmt = {
+          rangeFormatting = {
+            enable = true,
+          },
+        },
+      }
+    end,
+  },
+  {
     "mfussenegger/nvim-dap",
   },
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
-      'b0o/nvim-tree-preview.lua',
+      "b0o/nvim-tree-preview.lua",
     },
     config = function()
       require "configs.nvimtree"
@@ -85,7 +129,6 @@ return {
         "nextls",
         "elixirls",
         "emmet-language-server",
-        "zls",
         "gdscript",
       },
     },

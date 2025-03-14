@@ -22,6 +22,30 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.lua_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+          [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
+          [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+          [vim.fn.expand "${3rd}/love2d/library"] = true,
+        },
+        maxPreload = 100000,
+        preloadFileSize = 10000,
+      },
+    },
+  },
+}
+
 lspconfig.gdscript.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -30,6 +54,24 @@ lspconfig.gdscript.setup {
   flags = {
     debounce_text_changes = 150,
   },
+}
+
+lspconfig.clangd.setup({
+  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
+  init_options = {
+    fallbackFlags = { '-std=c++17' },
+  },
+})
+
+lspconfig.rust_analyzer.setup {
+  on_attach = function(client, bufnr)
+    -- Disable LSP formatting in favor of rustfmt
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+    -- Call the shared on_attach
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
 }
 
 lspconfig.gopls.setup {

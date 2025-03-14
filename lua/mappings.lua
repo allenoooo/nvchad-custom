@@ -20,6 +20,10 @@ map("n", "<leader>ss", "<cmd>vsplit<cr>", { desc = "vsplit" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+-- Code action for suggestions/quick fixes
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
+map("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action (range)" })
+
 -- dap
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<cr>", { desc = "toggle breakpoint" })
 map("n", "<leader>dus", function()
