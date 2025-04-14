@@ -96,6 +96,8 @@ lspconfig.zls.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  cmd = { "zls" },
+  filetypes = { "zig" },
 }
 
 lspconfig.tailwindcss.setup {
