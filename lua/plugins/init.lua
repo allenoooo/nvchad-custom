@@ -25,6 +25,38 @@ return {
     end,
   },
   {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      bigfile = { enabled = true },
+      dashboard = { enabled = true },
+      explorer = { enabled = false },
+      indent = { enabled = true },
+      input = { enabled = true },
+      picker = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
+  ---@type LazySpec
+  {
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      -- check the installation instructions at
+      -- https://github.com/folke/snacks.nvim
+      "folke/snacks.nvim",
+    },
+  },
+  {
     "mrcjkb/rustaceanvim",
     version = "^5", -- Recommended
     lazy = false, -- This plugin is already lazy
@@ -70,15 +102,6 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = {
-      "b0o/nvim-tree-preview.lua",
-    },
-    config = function()
-      require "configs.nvimtree"
-    end,
   },
   {
     "leoluz/nvim-dap-go",
@@ -132,13 +155,6 @@ return {
         "gdscript",
       },
     },
-  },
-  {
-    "supermaven-inc/supermaven-nvim",
-    lazy = false,
-    config = function()
-      require "configs.supermaven"
-    end,
   },
   {
     "nvimtools/none-ls.nvim",
