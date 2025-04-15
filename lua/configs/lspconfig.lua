@@ -46,22 +46,12 @@ lspconfig.lua_ls.setup {
   },
 }
 
-lspconfig.gdscript.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-
-  filetypes = { "gd", "gdscript", "gdscript3" },
-  flags = {
-    debounce_text_changes = 150,
+lspconfig.clangd.setup {
+  cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
+  init_options = {
+    fallbackFlags = { "-std=c++17" },
   },
 }
-
-lspconfig.clangd.setup({
-  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
-  init_options = {
-    fallbackFlags = { '-std=c++17' },
-  },
-})
 
 lspconfig.rust_analyzer.setup {
   on_attach = function(client, bufnr)
@@ -98,6 +88,18 @@ lspconfig.zls.setup {
   capabilities = capabilities,
   cmd = { "zls" },
   filetypes = { "zig" },
+}
+
+lspconfig.ols.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "odin" },
+  root_dir = lspconfig.util.root_pattern("ols.json", ".git"),
+  init_options = {
+    enable_document_symbols = true,
+    enable_hover = true,
+    enable_snippets = true,
+  },
 }
 
 lspconfig.tailwindcss.setup {

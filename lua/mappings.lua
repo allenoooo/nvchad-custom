@@ -43,3 +43,4 @@ map("n", "<leader>gie", "<cmd> GoIfErr <CR>", { desc = "gopher iferr" })
 
 -- yazi
 map("n", "<C-n>", "<cmd>Yazi cwd<cr>", { desc = "yazi cwd"})
+map("n", "<C-m>", "<cmd>Yazi<cr>", { desc = "yazi current file"})

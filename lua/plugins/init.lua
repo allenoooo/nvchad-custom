@@ -33,7 +33,9 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
       bigfile = { enabled = true },
-      dashboard = { enabled = true },
+      dashboard = {
+        enabled = true,
+      },
       explorer = { enabled = false },
       indent = { enabled = true },
       input = { enabled = true },
@@ -139,19 +141,13 @@ return {
     opts = {
       ensure_installed = {
         "lua-language-server",
-        "svelte-language-server",
         "stylua",
         "html-lsp",
         "gopls",
         "css-lsp",
         "prettierd",
-        "typescript-language-server",
-        "tailwindcss-language-server",
         "eslint-lsp",
         "delve",
-        "nextls",
-        "elixirls",
-        "emmet-language-server",
         "gdscript",
       },
     },
@@ -160,13 +156,10 @@ return {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     ft = {
-      "javascript",
-      "typescript",
       "lua",
       "css",
       "html",
       "json",
-      "svelte",
       "yaml",
       "go",
       "terraform",
@@ -174,18 +167,6 @@ return {
     },
     opts = function()
       return require "configs.null-ls"
-    end,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    ft = {
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-    },
-    config = function()
-      require("nvim-ts-autotag").setup()
     end,
   },
   {
@@ -198,16 +179,11 @@ return {
         "vimdoc",
         "html",
         "css",
-        "javascript",
-        "typescript",
-        "tsx",
         "terraform",
-        "svelte",
         "gleam",
         "zig",
-        "gdscript",
-        "godot_resource",
         "gdshader",
+        "odin",
       },
       auto_install = true,
       highlight = { enable = true },
