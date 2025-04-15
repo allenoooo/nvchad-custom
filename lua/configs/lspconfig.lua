@@ -94,7 +94,7 @@ lspconfig.ols.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "odin" },
-  root_dir = lspconfig.util.root_pattern("ols.json", ".git"),
+  -- root_dir = lspconfig.util.root_pattern("ols.json", ".git"),
   init_options = {
     enable_document_symbols = true,
     enable_hover = true,
