@@ -9,6 +9,11 @@ map("n", "<C-j>", "<cmd> TmuxNavigateDown<cr>", { desc = "TmuxNavigateDown" })
 map("n", "<C-k>", "<cmd> TmuxNavigateUp<cr>", { desc = "TmuxNavigateUp" })
 map("n", "<C-l>", "<cmd> TmuxNavigateRight<cr>", { desc = "TmuxNavigateRight" })
 
+map("n", "gd", "<cmd> Telescope lsp_definitions<cr>")
+map("n", "gr", "<cmd>Telescope lsp_references theme=get_dropdown initial_mode=normal<cr>")
+
+map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "lsp config code action" })
+
 map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 
 map("n", "<leader>gl", "<cmd>Gitsigns blame_line<cr>", { desc = "blame single line" })
@@ -19,10 +24,6 @@ map("n", "<leader>ss", "<cmd>vsplit<cr>", { desc = "vsplit" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-
--- Code action for suggestions/quick fixes
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
-map("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action (range)" })
 
 -- dap
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<cr>", { desc = "toggle breakpoint" })
@@ -42,5 +43,5 @@ map("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { desc = "gopher add yaml ta
 map("n", "<leader>gie", "<cmd> GoIfErr <CR>", { desc = "gopher iferr" })
 
 -- yazi
-map("n", "<C-n>", "<cmd>Yazi cwd<cr>", { desc = "yazi cwd"})
-map("n", "<C-m>", "<cmd>Yazi<cr>", { desc = "yazi current file"})
+map("n", "<C-n>", "<cmd>Yazi cwd<cr>", { desc = "yazi cwd" })
+map("n", "<C-m>", "<cmd>Yazi<cr>", { desc = "yazi current file" })

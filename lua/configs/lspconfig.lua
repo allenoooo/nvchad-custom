@@ -9,8 +9,9 @@ local servers = {
   "ts_ls",
   "eslint",
   "terraformls",
-  "svelte",
   "gleam",
+  "clangd",
+  "c3_lsp",
 }
 
 -- lsps with default config
@@ -47,7 +48,16 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.clangd.setup {
-  cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--completion-style=detailed",
+    "-j=10",
+    "--header-insertion-decorators",
+    "--query-driver=/usr/bin/**/clang-*",
+  },
   init_options = {
     fallbackFlags = { "-std=c++17" },
   },
@@ -102,36 +112,36 @@ lspconfig.ols.setup {
   },
 }
 
-lspconfig.tailwindcss.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  filetypes = { "html", "heex", "eelixir", "elixir", "javascriptreact", "typescriptreact" },
+-- lspconfig.tailwindcss.setup {
+--   on_attach = on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+--   filetypes = { "html", "heex", "eelixir", "elixir", "javascriptreact", "typescriptreact" },
+--
+--   init_options = {
+--     userLanguages = {
+--       elixir = "html-eex",
+--       eelixir = "html-eex",
+--       heex = "html-eex",
+--     },
+--   },
+-- }
 
-  init_options = {
-    userLanguages = {
-      elixir = "html-eex",
-      eelixir = "html-eex",
-      heex = "html-eex",
-    },
-  },
-}
+-- lspconfig.buf_ls.setup {
+--   on_attach = on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+--   cmd = { "buf_ls", "serve" },
+--   filetypes = { "proto" },
+-- }
 
-lspconfig.buf_ls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  cmd = { "buf_ls", "serve" },
-  filetypes = { "proto" },
-}
-
-lspconfig.elixirls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  filetypes = { "elixir", "eelixir", "heex" },
-  cmd = { "elixir-ls" },
-}
+-- lspconfig.elixirls.setup {
+--   on_attach = on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+--   filetypes = { "elixir", "eelixir", "heex" },
+--   cmd = { "elixir-ls" },
+-- }
 
 lspconfig.emmet_language_server.setup {
   on_attach = on_attach,

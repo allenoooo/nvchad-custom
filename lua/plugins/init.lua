@@ -14,10 +14,6 @@ return {
     end,
   },
   {
-    "habamax/vim-godot",
-    ft = { "gd", "gdscript" },
-  },
-  {
     "kdheepak/lazygit.nvim",
     lazy = false,
     config = function()
@@ -149,6 +145,7 @@ return {
         "eslint-lsp",
         "delve",
         "gdscript",
+        "clangd",
       },
     },
   },
@@ -184,11 +181,36 @@ return {
         "zig",
         "gdshader",
         "odin",
+        "c3",
       },
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "syntax")
+
+      -- Register C3 parser configuration
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      parser_config.c3 = {
+        install_info = {
+          url = "https://github.com/c3lang/tree-sitter-c3",
+          files = { "src/parser.c", "src/scanner.c" },
+          branch = "main",
+        },
+      }
+
+      -- Register C3 file extensions
+      vim.filetype.add {
+        extension = {
+          c3 = "c3",
+          c3i = "c3",
+          c3t = "c3",
+        },
+      }
+
+      require("nvim-treesitter.configs").setup(opts)
+    end,
     dependencies = {
       { "nushell/tree-sitter-nu" },
     },
