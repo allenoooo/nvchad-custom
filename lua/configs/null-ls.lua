@@ -12,23 +12,22 @@ local zig_fmt = {
     to_stdin = true,
   },
 }
+
 local opts = {
   sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.formatting.goimports_reviser,
-    null_ls.builtins.formatting.golines,
+    null_ls.builtins.formatting.golines.with {
+      extra_args = { "--max-len=120", "--tab-width=4", "--base-formatter=gofumpt" },
+    },
     null_ls.builtins.formatting.terraform_fmt,
     null_ls.builtins.formatting.clang_format.with {
-      extra_args = { "--style=file" },
+      extra_args = { "--style=file" }, -- Tells clang-format to use your .clang-format
     },
     zig_fmt,
   },
-  null_ls.builtins.formatting.golines.with {
-    extra_args = { "--max-len=120", "--tab-width=4", "--base-formatter=gofumpt" },
-  },
 
-  -- on github workflows and helm and stuff with weird yaml syntax, formatting on save messes up the yaml/templating
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
       vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
