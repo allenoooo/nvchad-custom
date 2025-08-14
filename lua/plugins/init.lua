@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -12,14 +12,14 @@ return {
       require "configs.lspconfig"
     end,
   },
-  
+
   -- Mason for LSP management
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         "elixir-ls",
-        "gopls", 
+        "gopls",
         "rust-analyzer",
         "typescript-language-server",
         "tailwindcss-language-server",
@@ -27,6 +27,11 @@ return {
         "prettier",
         "terraform-ls",
         "tflint",
+        "vscode-solidity-server",
+        "solhint",
+        -- YAML / Helm
+        "yaml-language-server",
+        "helm-ls",
       },
     },
   },
@@ -35,17 +40,44 @@ return {
   -- { import = "nvchad.blink.lazyspec" },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css", "elixir", "go", "rust",
-       "javascript", "typescript", "tsx", "json", "markdown", "markdown_inline",
-       "terraform", "hcl"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "elixir",
+        "go",
+        "rust",
+        "javascript",
+        "typescript",
+        "tsx",
+        "json",
+        "markdown",
+        "markdown_inline",
+        "terraform",
+        "hcl",
+        "solidity",
+        "yaml",
+      },
+    },
   },
-  
+
+  -- Helm filetype and syntax support
+  -- Not lazy to ensure ftdetect runs and sets 'helm' filetype for templates
+  {
+    "towolf/vim-helm",
+    lazy = false,
+  },
+
+  -- SchemaStore for YAML/JSON schemas (used by yamlls)
+  {
+    "b0o/SchemaStore.nvim",
+    lazy = true,
+  },
+
   -- Yazi file manager
   {
     "mikavilpas/yazi.nvim",
@@ -60,11 +92,11 @@ return {
     opts = {
       open_for_directories = false,
       keymaps = {
-        show_help = '<f1>',
+        show_help = "<f1>",
       },
     },
   },
-  
+
   -- Lazygit integration
   {
     "kdheepak/lazygit.nvim",

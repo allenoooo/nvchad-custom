@@ -18,13 +18,22 @@ local options = {
     terraform = { "terraform_fmt" },
     tf = { "terraform_fmt" },
     ["terraform-vars"] = { "terraform_fmt" },
+    solidity = { "prettier" },
   },
 
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 500,
-    lsp_fallback = true,
-  },
+  -- Enable format on save for almost all files.
+  -- Helm templates are excluded by default to avoid breaking Go templating.
+  format_on_save = function(bufnr)
+    local ft = vim.bo[bufnr].filetype
+    if ft == "helm" then
+      return
+    end
+    return {
+      -- These options will be passed to conform.format()
+      timeout_ms = 500,
+      lsp_fallback = true,
+    }
+  end,
 }
 
 return options
