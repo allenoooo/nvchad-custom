@@ -9,6 +9,7 @@ local servers = {
   "elixirls",
   "gopls",
   "rust_analyzer",
+  "clangd",
   "ts_ls",
   "tailwindcss",
   "eslint",
@@ -195,4 +196,14 @@ vim.lsp.config.terraformls = {
   cmd = { "terraform-ls", "serve" },
   root_markers = { ".terraform", ".git" },
   filetypes = { "terraform", "tf", "terraform-vars", "hcl" },
+}
+
+-- Clangd (C/C++) configuration
+vim.lsp.config.clangd = {
+  cmd = { "clangd" },
+  root_markers = {
+    "compile_commands.json",
+    "compile_flags.txt",
+    ".git",
+  },
 }
