@@ -23,3 +23,6 @@ map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "Open LazyGit" })
 -- Splits
 map("n", "<leader>sv", "<cmd>vsplit<cr>", { desc = "Vertical split" })
 map("n", "<leader>sh", "<cmd>split<cr>", { desc = "Horizontal split" })
+
+-- LSP mappings
+map("n", "gu", vim.lsp.buf.references, { desc = "Go to uses/references" })

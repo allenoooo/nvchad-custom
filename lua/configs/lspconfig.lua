@@ -18,6 +18,7 @@ local servers = {
   -- YAML / Helm
   "yamlls",
   "helm_ls",
+  "zls",
 }
 vim.lsp.enable(servers)
 
@@ -205,5 +206,20 @@ vim.lsp.config.clangd = {
     "compile_commands.json",
     "compile_flags.txt",
     ".git",
+  },
+}
+
+-- Zig LSP configuration
+vim.lsp.config.zls = {
+  cmd = { "zls" },
+  root_markers = { "build.zig", ".git" },
+  settings = {
+    zls = {
+      enable_autofix = false,
+      enable_snippets = true,
+      enable_ast_check_diagnostics = true,
+      enable_build_on_save = true,
+      build_on_save_step = "check",
+    },
   },
 }

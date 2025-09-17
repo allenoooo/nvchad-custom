@@ -34,6 +34,7 @@ return {
         -- YAML / Helm
         "yaml-language-server",
         "helm-ls",
+        "zls",
       },
     },
   },
@@ -65,6 +66,7 @@ return {
         "hcl",
         "solidity",
         "yaml",
+        "zig",
       },
     },
   },
@@ -82,25 +84,6 @@ return {
     lazy = true,
   },
 
-  -- Yazi file manager
-  {
-    "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
-    keys = {
-      {
-        "<C-n>",
-        "<cmd>Yazi<cr>",
-        desc = "Open yazi at the current file",
-      },
-    },
-    opts = {
-      open_for_directories = false,
-      keymaps = {
-        show_help = "<f1>",
-      },
-    },
-  },
-
   -- Lazygit integration
   {
     "kdheepak/lazygit.nvim",
@@ -114,6 +97,25 @@ return {
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
+    },
+  },
+
+  -- Yazi file manager
+  {
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<D-s>",
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi file manager",
+      },
+    },
+    opts = {
+      open_for_directories = false,
+      keymaps = {
+        show_help = '<f1>',
+      },
     },
   },
 }

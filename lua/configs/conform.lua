@@ -21,6 +21,7 @@ local options = {
     tf = { "terraform_fmt" },
     ["terraform-vars"] = { "terraform_fmt" },
     solidity = { "prettier" },
+    zig = { "zigfmt" },
   },
 
   -- Enable format on save for almost all files.
