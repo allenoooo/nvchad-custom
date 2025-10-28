@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(rm:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(brew install:*)",
+      "Bash(find:*)",
+      "Bash(chmod:*)",
+      "Bash(brew uninstall:*)",
+      "Bash(ls:*)",
+      "Bash(go install:*)",
+      "Bash(npm install:*)",
+      "Bash(flow cadence language-server:*)",
+      "Bash(flow cadence:*)",
+      "Bash(mason-registry list:*)",
+      "Bash(npm init:*)",
+      "Bash(cat:*)",
+      "Bash(npx prettier:*)",
+      "Bash(nvim:*)",
+      "Read(//Users/drifter/.local/share/nvim/lazy/NvChad/**)"
+    ],
+    "deny": [],
+    "defaultMode": "acceptEdits"
+  }
+}

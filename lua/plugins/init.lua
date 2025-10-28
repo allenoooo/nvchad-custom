@@ -100,13 +100,25 @@ return {
     },
   },
 
+  -- Disable nvim-tree
+  {
+    "nvim-tree/nvim-tree.lua",
+    enabled = false,
+  },
+
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   -- Yazi file manager
   {
     "mikavilpas/yazi.nvim",
     event = "VeryLazy",
     keys = {
       {
-        "<D-s>",
+        "<C-n>",
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi file manager",
+      },
+      {
+        "<leader>y",
         "<cmd>Yazi<cr>",
         desc = "Open yazi file manager",
       },

@@ -24,5 +24,13 @@ map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "Open LazyGit" })
 map("n", "<leader>sv", "<cmd>vsplit<cr>", { desc = "Vertical split" })
 map("n", "<leader>sh", "<cmd>split<cr>", { desc = "Horizontal split" })
 
+-- Override NvChad's nvim-tree mapping
+map("n", "<C-n>", "<cmd>Yazi<cr>", { desc = "Open yazi file manager" })
+
 -- LSP mappings
 map("n", "gu", vim.lsp.buf.references, { desc = "Go to uses/references" })
+
+-- C/C++ specific mappings
+map("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" })
+map("n", "<leader>ct", "<cmd>ClangdTypeHierarchy<cr>", { desc = "Show type hierarchy" })
+map("n", "<leader>cs", "<cmd>ClangdSymbolInfo<cr>", { desc = "Show symbol info" })

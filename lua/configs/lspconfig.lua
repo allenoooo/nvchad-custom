@@ -201,11 +201,24 @@ vim.lsp.config.terraformls = {
 
 -- Clangd (C/C++) configuration
 vim.lsp.config.clangd = {
-  cmd = { "clangd" },
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--completion-style=detailed",
+    "--function-arg-placeholders",
+    "--fallback-style=llvm",
+  },
   root_markers = {
     "compile_commands.json",
     "compile_flags.txt",
+    ".clangd",
+    "Makefile",
     ".git",
+  },
+  capabilities = {
+    offsetEncoding = { "utf-16" },
   },
 }
 
