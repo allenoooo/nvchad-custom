@@ -109,6 +109,37 @@ vim.lsp.config.rust_analyzer = {
       checkOnSave = {
         command = "clippy",
       },
+      inlayHints = {
+        bindingModeHints = {
+          enable = false,
+        },
+        chainingHints = {
+          enable = false,
+        },
+        closingBraceHints = {
+          enable = true,
+          minLines = 25,
+        },
+        closureReturnTypeHints = {
+          enable = "never",
+        },
+        lifetimeElisionHints = {
+          enable = "never",
+        },
+        maxLength = 25,
+        parameterHints = {
+          enable = true,
+        },
+        reborrowHints = {
+          enable = "never",
+        },
+        renderColons = true,
+        typeHints = {
+          enable = false,
+          hideClosureInitialization = false,
+          hideNamedConstructor = false,
+        },
+      },
     },
   },
 }

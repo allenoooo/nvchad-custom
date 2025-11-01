@@ -31,6 +31,40 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Rust specific settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "rust",
+  callback = function()
+    -- Set indentation to 4 spaces for Rust
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+
+    -- Enable inlay hints
+    vim.lsp.inlay_hint.enable(true)
+
+    -- Set comment string
+    vim.opt_local.commentstring = "// %s"
+
+    -- Enable code folding
+    vim.opt_local.foldmethod = "syntax"
+    vim.opt_local.foldlevel = 99
+  end,
+})
+
+-- Cargo.toml crates.nvim integration
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = "Cargo.toml",
+  callback = function()
+    -- Add crates source to nvim-cmp for Cargo.toml files
+    local cmp = require "cmp"
+    local sources = cmp.get_config().sources
+    table.insert(sources, { name = "crates" })
+    cmp.setup.buffer { sources = sources }
+  end,
+})
+
 -- C project setup hints
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.c", "*.h" },

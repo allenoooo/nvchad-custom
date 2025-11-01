@@ -35,6 +35,8 @@ return {
         "yaml-language-server",
         "helm-ls",
         "zls",
+        -- DAP
+        "codelldb",
       },
     },
   },
@@ -82,6 +84,60 @@ return {
   {
     "b0o/SchemaStore.nvim",
     lazy = true,
+  },
+
+  -- Rust crates.io support for Cargo.toml
+  {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("crates").setup {
+        completion = {
+          cmp = {
+            enabled = true,
+          },
+        },
+        lsp = {
+          enabled = true,
+          actions = true,
+          completion = true,
+          hover = true,
+        },
+      }
+    end,
+  },
+
+  -- DAP (Debug Adapter Protocol) for debugging
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require "configs.dap"
+    end,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    config = function()
+      local dap, dapui = require "dap", require "dapui"
+      dapui.setup()
+
+      -- Automatically open/close dapui
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end,
   },
 
   -- Lazygit integration
