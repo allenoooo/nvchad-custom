@@ -19,6 +19,12 @@ local servers = {
   "yamlls",
   "helm_ls",
   "zls",
+  -- Nushell
+  "nushell",
+  -- C3
+  "c3_lsp",
+  -- Odin
+  "ols",
 }
 vim.lsp.enable(servers)
 
@@ -266,4 +272,28 @@ vim.lsp.config.zls = {
       build_on_save_step = "check",
     },
   },
+}
+
+-- Nushell LSP configuration
+vim.lsp.config.nushell = {
+  cmd = { "nu", "--lsp" },
+  filetypes = { "nu" },
+  root_markers = { ".git" },
+  single_file_support = true,
+}
+
+-- C3 LSP configuration
+vim.lsp.config.c3_lsp = {
+  cmd = { "c3lsp" },
+  filetypes = { "c3" },
+  root_markers = { "project.json", "manifest.json", ".git" },
+  single_file_support = true,
+}
+
+-- Odin Language Server configuration
+vim.lsp.config.ols = {
+  cmd = { "ols" },
+  filetypes = { "odin" },
+  root_markers = { "ols.json", ".git" },
+  single_file_support = true,
 }

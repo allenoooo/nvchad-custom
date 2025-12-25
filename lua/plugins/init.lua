@@ -35,14 +35,13 @@ return {
         "yaml-language-server",
         "helm-ls",
         "zls",
+        -- Nushell
+        "nushell-language-server",
         -- DAP
         "codelldb",
       },
     },
   },
-
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
 
   {
     "nvim-treesitter/nvim-treesitter",
@@ -69,8 +68,28 @@ return {
         "solidity",
         "yaml",
         "zig",
+        "nu",
+        "c3",
+        "odin",
       },
     },
+    config = function(_, opts)
+      -- Register c3 parser (not yet in official nvim-treesitter)
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      parser_config.c3 = {
+        install_info = {
+          url = "https://github.com/c3lang/tree-sitter-c3",
+          files = { "src/parser.c", "src/scanner.c" },
+          branch = "main",
+        },
+        filetype = "c3",
+      }
+
+      -- Register the parser for c3 filetype
+      vim.treesitter.language.register("c3", "c3")
+
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
 
   -- Helm filetype and syntax support
@@ -163,6 +182,20 @@ return {
   },
 
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
+  -- Show code context (function/class/scope) at top of buffer
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = "BufReadPost",
+    opts = {
+      enable = true,
+      max_lines = 3,
+      multiline_threshold = 1,
+      trim_scope = "outer",
+      mode = "cursor",
+    },
+  },
   -- Yazi file manager
   {
     "mikavilpas/yazi.nvim",

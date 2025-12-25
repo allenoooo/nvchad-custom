@@ -1,5 +1,14 @@
 require "nvchad.autocmds"
 
+-- C3 filetype detection
+vim.filetype.add {
+  extension = {
+    c3 = "c3",
+    c3i = "c3", -- C3 interface files
+    odin = "odin",
+  },
+}
+
 -- C/C++ specific settings
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp" },
@@ -97,5 +106,50 @@ vim.api.nvim_create_autocmd("BufNewFile", {
     }
     vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
     vim.api.nvim_win_set_cursor(0, { 4, 0 })
+  end,
+})
+
+-- Nushell specific settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "nu",
+  callback = function()
+    -- Set indentation to 4 spaces for Nushell
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+
+    -- Set comment string
+    vim.opt_local.commentstring = "# %s"
+  end,
+})
+
+-- C3 specific settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "c3",
+  callback = function()
+    -- Set indentation to 4 spaces for C3
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+
+    -- Set comment string
+    vim.opt_local.commentstring = "// %s"
+  end,
+})
+
+-- Odin specific settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "odin",
+  callback = function()
+    -- Odin uses tabs by convention
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = false
+
+    -- Set comment string
+    vim.opt_local.commentstring = "// %s"
   end,
 })

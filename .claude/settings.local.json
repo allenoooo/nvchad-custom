@@ -21,7 +21,8 @@
       "Bash(cat:*)",
       "Bash(npx prettier:*)",
       "Bash(nvim:*)",
-      "Read(//Users/drifter/.local/share/nvim/lazy/NvChad/**)"
+      "Read(//Users/drifter/.local/share/nvim/lazy/NvChad/**)",
+      "WebSearch"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
