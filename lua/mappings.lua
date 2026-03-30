@@ -34,6 +34,10 @@ map("n", "<C-n>", "<cmd>Yazi<cr>", { desc = "Open yazi file manager" })
 
 -- LSP mappings
 map("n", "gu", vim.lsp.buf.references, { desc = "Go to uses/references" })
+map("n", "<leader>gt", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
+map("n", "<leader>fu", function()
+    require("telescope.builtin").grep_string()
+end, { desc = "Find usage under cursor" })
 
 -- C/C++ specific mappings
 map("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" })

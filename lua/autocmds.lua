@@ -6,6 +6,11 @@ vim.filetype.add {
     c3 = "c3",
     c3i = "c3", -- C3 interface files
     odin = "odin",
+    fs = "glsl", -- GLSL fragment shaders
+    vs = "glsl", -- GLSL vertex shaders
+    frag = "glsl",
+    vert = "glsl",
+    glsl = "glsl",
   },
 }
 
@@ -148,6 +153,20 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
     vim.opt_local.expandtab = false
+
+    -- Set comment string
+    vim.opt_local.commentstring = "// %s"
+  end,
+})
+
+-- GLSL shader specific settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "glsl",
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
 
     -- Set comment string
     vim.opt_local.commentstring = "// %s"

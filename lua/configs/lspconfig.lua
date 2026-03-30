@@ -21,8 +21,6 @@ local servers = {
   "zls",
   -- Nushell
   "nushell",
-  -- C3
-  "c3_lsp",
   -- Odin
   "ols",
 }
@@ -242,10 +240,12 @@ vim.lsp.config.clangd = {
     "clangd",
     "--background-index",
     "--clang-tidy",
-    "--header-insertion=iwyu",
+    "--header-insertion=never",
     "--completion-style=detailed",
     "--function-arg-placeholders",
     "--fallback-style=llvm",
+    "-j=4",
+    "--clang-tidy-checks=-misc-include-cleaner",
   },
   root_markers = {
     "compile_commands.json",
@@ -282,14 +282,6 @@ vim.lsp.config.nushell = {
   single_file_support = true,
 }
 
--- C3 LSP configuration
-vim.lsp.config.c3_lsp = {
-  cmd = { "c3lsp" },
-  filetypes = { "c3" },
-  root_markers = { "project.json", "manifest.json", ".git" },
-  single_file_support = true,
-}
-
 -- Odin Language Server configuration
 vim.lsp.config.ols = {
   cmd = { "ols" },
@@ -297,3 +289,19 @@ vim.lsp.config.ols = {
   root_markers = { "ols.json", ".git" },
   single_file_support = true,
 }
+
+-- C3 LSP: start manually to bypass config resolution issues
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "c3",
+  callback = function(args)
+    vim.lsp.start({
+      name = "c3_lsp",
+      cmd = {
+        "c3lsp",
+        "-c3c-path", "c3c",
+        "-stdlib-path", "/opt/homebrew/opt/c3c/lib/c3/std",
+      },
+      root_dir = vim.fs.root(args.buf, { "project.json", "manifest.json", ".git" }),
+    })
+  end,
+})
